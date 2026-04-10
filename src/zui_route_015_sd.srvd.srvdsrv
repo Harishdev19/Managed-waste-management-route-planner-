@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for Route Planner'
+define service ZUI_ROUTE_015_SD {
+  expose ZC_ROUTE_015 as Route;
+  expose ZC_STOP_015  as Stop;
+}

@@ -1,0 +1,30 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Stop', typeNamePlural: 'Stops', title: { type: #STANDARD, value: 'StopId' } }
+}
+annotate view ZC_STOP_015 with 
+{
+  @UI.facet: [ { id: 'Stop', purpose: #STANDARD, type: #IDENTIFICATION_REFERENCE, label: 'Stop Details', position: 10 } ]
+  
+  @UI.hidden: true
+  StopUid;
+  
+  @UI.hidden: true
+  RouteUid;
+  
+  @EndUserText.label: 'Stop ID'
+  @UI: { lineItem: [ { position: 10 } ], identification: [ { position: 10 } ] }
+  StopId;
+  
+  @EndUserText.label: 'Location'
+  @UI: { lineItem: [ { position: 20 } ], identification: [ { position: 20 } ] }
+  Location;
+  
+  @EndUserText.label: 'Waste Type'
+  @UI: { lineItem: [ { position: 30 } ], identification: [ { position: 30 } ] }
+  WasteType;
+  
+  @EndUserText.label: 'Capacity (KG)'
+  @UI: { lineItem: [ { position: 40 } ], identification: [ { position: 40 } ] }
+  CapacityKg;
+}

@@ -1,0 +1,19 @@
+projection;
+strict ( 2 );
+
+define behavior for ZC_ROUTE_015 alias Route
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _Stops { create; }
+}
+
+define behavior for ZC_STOP_015 alias Stop
+{
+  use update;
+  use delete;
+
+  use association _Route;
+}

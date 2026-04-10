@@ -1,0 +1,28 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Route', typeNamePlural: 'Routes', title: { type: #STANDARD, value: 'RouteId' } }
+}
+annotate view ZC_ROUTE_015 with 
+{
+  @UI.facet: [ { id: 'Route', purpose: #STANDARD, type: #IDENTIFICATION_REFERENCE, label: 'Route Details', position: 10 },
+               { id: 'Stops', purpose: #STANDARD, type: #LINEITEM_REFERENCE, label: 'Collection Stops', position: 20, targetElement: '_Stops' } ]
+  
+  @UI.hidden: true
+  RouteUid;
+  
+  @EndUserText.label: 'Route ID'
+  @UI: { lineItem: [ { position: 10 } ], identification: [ { position: 10 } ] }
+  RouteId;
+  
+  @EndUserText.label: 'Driver Name'
+  @UI: { lineItem: [ { position: 20 } ], identification: [ { position: 20 } ] }
+  DriverName;
+  
+  @EndUserText.label: 'Vehicle Number'
+  @UI: { lineItem: [ { position: 30 } ], identification: [ { position: 30 } ] }
+  VehicleNo;
+  
+  @EndUserText.label: 'Route Status'
+  @UI: { lineItem: [ { position: 40 } ], identification: [ { position: 40 } ] }
+  RouteStatus;
+}

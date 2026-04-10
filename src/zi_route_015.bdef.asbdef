@@ -1,0 +1,54 @@
+managed implementation in class zbp_i_route_015 unique;
+strict ( 2 );
+
+define behavior for ZI_ROUTE_015 alias Route
+persistent table zroute_015
+lock master
+authorization master ( instance )
+etag master LastChangedAt
+{
+  create;
+  update;
+  delete;
+  association _Stops { create; }
+
+  field ( numbering : managed, readonly ) RouteUid;
+  field ( readonly ) CreatedAt, CreatedBy, LastChangedAt, LastChangedBy;
+
+  mapping for zroute_015
+  {
+    RouteUid = route_uid;
+    RouteId = route_id;
+    DriverName = driver_name;
+    VehicleNo = vehicle_no;
+    RouteStatus = route_status;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+  }
+}
+
+define behavior for ZI_STOP_015 alias Stop
+persistent table zstop_015
+lock dependent by _Route
+authorization dependent by _Route
+etag dependent by _Route
+{
+  update;
+  delete;
+  association _Route;
+
+  field ( numbering : managed, readonly ) StopUid;
+  field ( readonly ) RouteUid;
+
+  mapping for zstop_015
+  {
+    StopUid = stop_uid;
+    RouteUid = route_uid;
+    StopId = stop_id;
+    Location = location;
+    WasteType = waste_type;
+    CapacityKg = capacity_kg;
+  }
+}
